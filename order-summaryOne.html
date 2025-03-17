@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Order Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/order.css">
+</head>
+
+<body>
+
+    <!-- <---------loader----------------- -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- -----------header start--------------- -->
+    <header class="header1">
+        <nav>
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="">Home</a></li>
+                <li><a href="">Support</a></li>
+                <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                        href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg></span></li>
+                <div class="login-buttons">
+                    <li class="login"><a href="login.html">Login</a></li>
+                    <li class="signup"><a href="signup.html">Sign up</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+    <header class="header2">
+        <nav>
+            <!-- Logo Section -->
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt="Logo"></a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar (hidden by default) -->
+        <ul class="navbar">
+            <div class="crossBtn">X</div>
+            <li><a href="">Home</a></li>
+            <li><a href="">Support</a></li>
+            <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                    href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg></span></li>
+            <div class="login-buttons">
+                <li class="login"><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html">Sign up</a></li>
+            </div>
+        </ul>
+    </header>
+
+    <!-- ----------header end---------------- -->
+
+
+
+
+
+    <section class="order-summary2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="fare-summary mt-5 ml-0 mb-0 ">Complete your booking</div>
+
+                    <div class="order-summary-flight p-4 mt-4 mb-4">
+
+                        <h4 class="flight-route">
+                            <i class="fa-solid fa-plane-departure"></i> Nairobi (NBI) → Mombasa (MBO)
+                        </h4>
+                        <p>Sunday, 29th Jan • Non-stop • 9hr 50min</p>
+
+                        <!-- Airline Details -->
+                        <div class="d-flex align-items-center">
+                            <img src="images/Plane flying over the planet.png" alt="ABC Airline" class="airline-logo">
+                            <strong>ABC Airline</strong>
+                            <span class="ms-auto non-refundable">Non-refundable</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-3">
+                            <p class="travel-class">Travel Class: Economy</p>
+                        </div>
+
+                        <!-- Flight Info -->
+                        <div class="row mt-3">
+                            <div class="col-md-5">
+                                <strong>NBI</strong> <br>
+                                <span class="flight-time">14:50 | Sun, 29 Jan 2023</span> <br>
+                                <span class="text-muted">Moi Intl, Mombasa, Kenya</span> <br>
+                                <span class="text-muted">Terminal - 2, Gate - 25</span>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <span class="fw-bold">9hr 50min</span><br>
+                                <i class="fa-solid fa-plane"></i>
+                            </div>
+                            <div class="col-md-5 text-end">
+                                <strong>MBO</strong> <br>
+                                <span class="flight-time">14:50 | Sun, 29 Jan 2023</span> <br>
+                                <span class="text-muted">JFK Terminal, Nairobi, Kenya</span> <br>
+                                <span class="text-muted">Terminal - 2, Gate - 25</span>
+                            </div>
+                        </div>
+
+                        <!-- Baggage Info -->
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <strong>Baggage</strong> <br>
+                                <span class="baggage-info">ADULT: 23Kgs (1 Piece * 23Kgs)</span>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <strong>Cabin</strong> <br>
+                                <span class="baggage-info">7Kgs (1 Piece * 7Kgs)</span>
+                            </div>
+                        </div>
+
+                        <!-- Icons Info -->
+                        <div class="icons-info mt-3">
+                            <p>
+                                <i class="fa-solid fa-ticket"></i> Separate tickets booked together for cheaper price
+                                <br>
+                                <i class="fa-solid fa-exchange-alt"></i> Change of Terminal <br>
+                                <i class="fa-solid fa-plane-circle-check"></i> Self Transfer <br>
+                                <i class="fa-solid fa-suitcase"></i> 7kg
+                            </p>
+                        </div>
+
+                        <!-- Warning Message -->
+                        <div class="alert alert-warning mt-3">
+                            <i class="fa-solid fa-exclamation-circle"></i> Sorry, extra check-in baggage allowance
+                            details are not available currently from the airline.
+                        </div>
+                    </div>
+
+                    <div class="guidelines-container">
+                        <div class="guidelines-header">
+                            <h2>Important Guidelines</h2>
+                            <button class="dropdown-btn" onclick="toggleDropdown()">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="guidelines-content">
+                            <p>
+                                When booking a Hotel, it is important for passengers to follow certain
+                                guidelines to ensure a smooth and stress-free experience. Here are some
+                                important guidelines for passengers to observe when booking a Hotel:
+                            </p>
+                            <p id="extra-content" class="hidden">
+                                Double-Check Hotel Details: Before confirming your booking, carefully
+                                review all Hotel details, including dates, location, and Traveller
+                                information. Ensure that the information entered is accurate to avoid
+                                any complications later on.
+                            </p>
+                            <span class="read-more" onclick="toggleReadMore()">Read more</span>
+                        </div>
+                    </div>
+
+                    <div class="flyeasyform-container">
+                        <h2>Passenger information</h2>
+                        <p class="text-muted">Enter the required information for each traveler and be sure that it
+                            exactly matches the government-issued ID presented at the airport.</p>
+
+                        <div class="flyeasyform-group">
+                            <input type="text" placeholder="First name*" required>
+                            <input type="text" placeholder="Middle">
+                            <input type="text" placeholder="Last name*" required>
+                        </div>
+
+                        <div class="flyeasyform-group">
+                            <input type="email" placeholder="Email address*" required>
+                            <input type="tel" placeholder="Phone number*" required>
+                        </div>
+
+                        <div class="flyeasyform-group">
+                            <input type="text" placeholder="Nationality*" required>
+                            <input type="text" placeholder="Date of birth*" onfocus="(this.type='date')" required>
+                        </div>
+
+
+                        <div class="other-preference-header">Other Preference <span class="float-end">&#9660;</span>
+                        </div>
+
+                        <div class="other-reference mt-2 p-3">
+                            <div class="row mb-3">
+                                <label class="col-md-3 ">Special Request</label>
+                                <div class="col-md-9">
+                                    <select class="form-select">
+                                        <option selected>Special Services:</option>
+                                        <option>Wheelchair Assistance</option>
+                                        <option>Extra Legroom</option>
+                                        <option>Medical Assistance</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-md-3 ">Meal Service</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="-(Select Meal)-Rs:0">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-md-3 ">Extra Baggage</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="Select Baggage-Rs:0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flyeasyform-contact-details">
+                            <h3>Contact Details (Booking details will be sent to)</h3>
+                            <div class="flyeasyform-group">
+                                <select>
+                                    <option>Country Code</option>
+                                    <option value="+1">+1</option>
+                                    <option value="+44">+44</option>
+                                    <option value="+91">+91</option>
+                                </select>
+                                <input type="tel" placeholder="Mobile numbers" required>
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                        </div>
+
+                        <div class="flyeasyform-button-group">
+                            <a href="#">Cancel</a>
+                            <button>Continue</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3">
+                    <!-- <div class="steps">
+                        <div class="step completed">
+                            <div class="circle"><i class="fas fa-check"></i></div>
+                            Choose Room
+                        </div>
+                        <div class="step completed">
+                            <div class="circle">2</div>
+                            Room Details
+                        </div>
+                        <div class="step">
+                            <div class="circle">3</div>
+                            Payment
+                        </div>
+                    </div> -->
+                    <div class="steps">
+                        <div class="step completed">
+                            <div class="circle">1</div>
+                            Choose Flight
+                        </div>
+                        <div class="step ">
+                            <div class="circle">2</div>
+                            Flight Details
+                        </div>
+                        <div class="step">
+                            <div class="circle">3</div>
+                            Payment
+                        </div>
+                    </div>
+                    <div class="fare-summary">Fare Summary</div>
+
+                    <div class="airlines-total p-3">
+                        <!-- First Flight -->
+                        <div class="airline-item border-bottom pb-2">
+                            <img src="images/image 25.png" alt="Hawaiian Airlines" class="airline-logo">
+                            <div class="airline-info">
+                                <strong>Hawaiian Airlines</strong><br>
+                                <span class="text-muted">FIG4312</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="fw-bold">16h 45m (+1d)</span><br>
+                                <span class="flight-time">7:00 AM - 4:15 PM</span><br>
+                                <span class="stop-info">2h 45m in HNL</span>
+                            </div>
+                        </div>
+
+                        <!-- Second Flight -->
+                        <div class="airline-item pt-2">
+                            <img src="images/image 25.png" alt="Hawaiian Airlines" class="airline-logo">
+                            <div class="airline-info">
+                                <strong>Hawaiian Airlines</strong><br>
+                                <span class="text-muted">FIG4312</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="fw-bold">16h 45m (+1d)</span><br>
+                                <span class="flight-time">7:00 AM - 4:15 PM</span><br>
+                                <span class="stop-info">2h 45m in HNL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" fare-summary-details">
+                        <div class="summary-details">
+                            <div class="summary-item">
+                                <span>Sub Total</span>
+                                <span>$702</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Taxes and Fees</span>
+                                <span>$66</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="total">
+                            <span class="fw-bold">Payable Amount</span>
+                            <span>$768</span>
+                        </div>
+                    </div>
+
+
+                    <div class="fare-summary" style="margin-top: 50px;">Promo Code</div>
+                    <div class="promo-code-container position-sticky" style="top: 110px;">
+                        <div>
+                            <input type="text" id="promoInput" placeholder="YOUR PROMO CODE" />
+                            <button onclick="applyPromo()">Apply</button>
+                        </div>
+                        <div class="promo-code-list">
+                            <div class="promo-code-item" id="item1">
+                                <div>
+                                    <p class="promo-head">Wanderlust Hotel Agency</p>
+                                    <p>15% Off on All-Inclusive Vacation Packages</p>
+                                    <span id="promo1">WANDER15 <button class="copy-btn"
+                                            onclick="togglePromo('promo1', 'item1', this)"><i
+                                                class="fas fa-copy"></i></button></span>
+                                </div>
+
+                            </div>
+
+                            <div class="promo-code-item" id="item2">
+                                <div>
+                                    <p class="promo-head">Wanderlust Hotel Agency</p>
+                                    <p>15% Off on All-Inclusive Vacation Packages</p>
+                                    <span id="promo2">WANDER15 <button class="copy-btn"
+                                            onclick="togglePromo('promo2', 'item2', this)"><i
+                                                class="fas fa-copy"></i></button></span>
+                                </div>
+
+                            </div>
+
+                            <div class="promo-code-item" id="item3">
+                                <div>
+                                    <p class="promo-head">Wanderlust Hotel Agency</p>
+                                    <p>15% Off on All-Inclusive Vacation Packages</p>
+                                    <span id="promo3">WANDER15 <button class="copy-btn"
+                                            onclick="togglePromo('promo3', 'item3', this)"><i
+                                                class="fas fa-copy"></i></button></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p>FlyEasyGo is more than just a Hotel booking app; it's your one-stop shop for seamless travel
+                    experiences.</p>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Carrier</a></li>
+                    <li><a href="#">Work With Us</a></li>
+                    <li><a href="#">Blog & News</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>FlyEasyGo@gmail.com</li>
+                    <li>+91 9455 6778 09</li>
+                    <li>India</li>
+                </ul>
+                <div class="footer-social">
+                    <h3>Follow Us On Social</h3>
+                    <div class="social-icons">
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="Facebook"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                                    alt="Twitter"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                                    alt="LinkedIn"></a>
+                        </div>
+                        <br>
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+                                    alt="YouTube"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                    alt="Instagram"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png"
+                                    alt="TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 FlyEasyGO. All rights reserved.
+        </div>
+    </footer>
+
+
+
+    <script>
+        function togglePromo(promoId, itemId, button) {
+            const promoCode = document.getElementById(promoId).innerText;
+            const inputField = document.getElementById('promoInput');
+            const item = document.getElementById(itemId);
+
+            if (button.classList.contains('copied')) {
+                // Reset the button and item
+                button.classList.remove('copied');
+                button.innerHTML = '<i class="fas fa-copy"></i>';
+                item.classList.remove('copied');
+                inputField.value = '';
+            } else {
+                // Mark as copied
+                inputField.value = promoCode;
+                button.classList.add('copied');
+                button.innerHTML = '<i class="fas fa-times"></i>';
+                item.classList.add('copied');
+            }
+        }
+
+        function applyPromo() {
+            const inputCode = document.getElementById('promoInput').value;
+            if (inputCode) {
+                alert(`Promo code ${inputCode} applied!`);
+            } else {
+                alert('Please enter a promo code!');
+            }
+        }
+    </script>
+
+    <script>
+        function toggleDropdown() {
+            const dropdownBtn = document.querySelector('.dropdown-btn i');
+            const content = document.querySelector('.guidelines-container .guidelines-content');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                dropdownBtn.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                content.classList.add('hidden');
+                dropdownBtn.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        }
+
+        function toggleReadMore() {
+            const extraContent = document.getElementById('extra-content');
+            const readMoreBtn = document.querySelector('.read-more');
+
+            if (extraContent.classList.contains('hidden')) {
+                extraContent.classList.remove('hidden');
+                readMoreBtn.textContent = 'Read less';
+            } else {
+                extraContent.classList.add('hidden');
+                readMoreBtn.textContent = 'Read more';
+            }
+        }
+    </script>
+
+    <script src="navbar.js"></script>
+</body>
+
+</html>

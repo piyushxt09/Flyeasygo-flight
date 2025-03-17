@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+
+<body>
+    <!-- <---------loader----------------- -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+
+
+    <!-- -----------header start--------------- -->
+    <header class="header1">
+        <nav>
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                        href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg></span></li>
+                <div class="login-buttons">
+                    <li class="login"><a href="login.html">Login</a></li>
+                    <li class="signup">
+                        <a href="signup.html" id="">Sign up</a>
+
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <header class="header2">
+        <nav>
+            <!-- Logo Section -->
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt="Logo"></a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar (hidden by default) -->
+        <ul class="navbar">
+            <div class="crossBtn">X</div>
+            <li><a href="">Home</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                    href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg></span></li>
+            <div class="login-buttons">
+                <li class="login"><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html">Sign up</a></li>
+            </div>
+        </ul>
+    </header>
+
+    <!-- ----------header end---------------- -->
+
+
+
+    <section class="flight-home-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-md-5 text-start ms-md-0 ms-3">
+                    <h2 class="mb-3">Your Gateway to Effortless Flight Booking and Unbeatable Deals!</h2>
+                    <p class="mb-3">Let us take care of the details while you focus on creating unforgettable travel memories!</p>
+                    <button class="btn my-btn mb-5">Getting Started</button>
+                </div>
+
+                <!-- Right Booking Form -->
+                <div class="col-md-7">
+                    <div class="p-4">
+                        <div class="d-inline-flex">
+                            <button class="btn my-btn-second active">One-way</button>
+                            <button class="btn ">Round trip</button>
+                        </div>
+
+                        <!-- <div class="mt-5 Flight-Home-Section">
+                            <label for="currency" class="form-label">Currency</label>
+                            <select id="currency" class="form-select w-25 ">
+                                <option>$ USD</option>
+                                <option>€ EUR</option>
+                                <option>£ GBP</option>
+                            </select>
+                        </div> -->
+
+                        <div class="mt-5 row Flight-Home-Section flex-wrap">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">From</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-plane-departure"></i></span>
+                                    <input type="text" class="form-control" value="Jakarta (JKTA)">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mt-3 mt-md-0">
+                                <label class="form-label">To</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
+                                    <input type="text" class="form-control" value="Jakarta (JKTA)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4 Flight-Home-Section">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Departure Date</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="text" id="departure-date" class="form-control"
+                                        placeholder="Select date">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mt-3 mt-md-0">
+                                <label class="form-label"><input class="form-check-input" type="checkbox"
+                                        id="enableReturn"> Return Date</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="text" id="return-date" class="form-control" placeholder="Select date"
+                                        disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4 Flight-Home-Section">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Passenger</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="text" class="form-control" value="1 Adult, 1 Child">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mt-3 mt-md-0">
+                                <label class="form-label">Seat Class</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-chair"></i></span>
+                                    <select class="form-select">
+                                        <option>Economy</option>
+                                        <option>Business</option>
+                                        <option>First Class</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn my-btn col-12 col-md-6 mt-5 d-flex justify-content-center align-items-start "
+                            style="margin: 0px auto;"
+                            onclick="window.location.href='searchFuncionality.html'">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container mt-5 mb-5 voucher-section">
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="text-muted mb-md-2 mb-3">BEST OFFER</h5>
+                <h2 class="mb-md-3 mb-3">Get Ready to Save Big on Your Next Trip with Our Voucher</h2>
+                <p>We're excited to offer you an exclusive voucher to help you save on your next adventure. Whether
+                    you're planning a weekend getaway, a family vacation, or a solo expedition.</p>
+            </div>
+            <div class="col-md-6 col-12 row flex-wrap">
+                <div class="voucher-card col-12 col-md-6">
+                    <img src="images/image1.jpg" alt="Family Travel">
+                    <div class="voucher-content">
+                        <h6>SAVE UP TO</h6>
+                        <h2>50%</h2>
+                        <p>Only for family package, it won't last forever. Book now!</p>
+                    </div>
+                </div>
+                <div class="voucher-card col-12 col-md-6 mt-3 mt-md-0 ">
+                    <img src="images/image2.jpg" alt="Flight Discount">
+                    <div class="voucher-content">
+                        <h6>SAVE UP TO</h6>
+                        <h2>20%</h2>
+                        <p>On your next flight with this exclusive voucher!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container popular-section my-5 mt-5">
+        <h6 class="text-start text-md-center text-muted">DISCOVER</h6>
+        <h2 class="text-start text-md-center">Find Popular Destination on Flypass!</h2>
+        <p class="text-start text-md-center">Explore our curated list of trending destinations that are capturing the hearts of
+            travelers worldwide</p>
+
+        <div class="d-flex filter-buttons flex-wrap justify-content-md-center flex-column flex-md-row">
+            <button class="btn my-btn ">Trending</button>
+            <button class="btn my-btn-simple">5-Star</button>
+            <button class="btn my-btn-simple">Asian</button>
+            <button class="btn my-btn-simple">Europe</button>
+            <button class="btn my-btn-simple">Middle-East</button>
+            <button class="btn my-btn-simple">Budget-Friendly</button>
+            <button class="btn my-btn-simple">Adventure</button>
+            <button class="btn my-btn-simple">Family-Friendly</button>
+        </div>
+
+        <div class="row mt-4 gap-4 gap-md-0">
+            <div class="col-md-3">
+                <div class="destination-card">
+                    <img src="images/himg1.jpeg" alt="Disneyland and Disneysea">
+                    <div class="card-body">
+                        <h4>Disneyland and Disneysea</h4>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <p><i class="fa-solid fa-star text-warning"></i> 4.5/5 (2,312 Reviews)</p>
+                                <p><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</p>
+                            </div>
+                            <h5 class="text-muted">Start from <br><span>$129</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class=" destination-card">
+                    <img src="images/himg2.jpeg" alt="River Wonders Singapore">
+                    <div class="card-body">
+                        <h4>River Wonders Singapore</h4>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <p><i class="fa-solid fa-star text-warning"></i> 4.5/5 (2,312 Reviews)</p>
+                                <p><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</p>
+                            </div>
+                            <h5 class="text-muted">Start from <br><span>$129</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="destination-card">
+                    <img src="images/himg3.jpeg" alt="The Amazing Taman Safari">
+                    <div class="card-body">
+                        <h4>The Amazing Taman Safari</h4>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <p><i class="fa-solid fa-star text-warning"></i> 4.5/5 (2,312 Reviews)</p>
+                                <p><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</p>
+                            </div>
+                            <h5 class="text-muted">Start from <br><span>$129</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="destination-card">
+                    <img src="images/himg4.jpeg" alt="Uluwatu Kecak & Fire Dance">
+                    <div class="card-body">
+                        <h4>Uluwatu Kecak & Fire Dance</h4>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <p><i class="fa-solid fa-star text-warning"></i> 4.5/5 (2,312 Reviews)</p>
+                                <p><i class="fa-solid fa-location-dot"></i> Tokyo, Japan</p>
+                            </div>
+                            <h5 class="text-muted">Start from <br><span>$129</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container discover-section pt-0 pb-5 ">
+        <div class="row">
+
+            <div class="col-lg-5">
+                <h6 class="text-muted">DISCOVER</h6>
+                <h2>Best Country Recommendation to Visit on 2024</h2>
+                <p>Explore our curated list of the best countries to visit in 2024 and discover incredible destinations
+                    waiting to be explored.</p>
+
+                <div class="d-flex flex-wrap filter-buttons">
+                    <button class="btn my-btn">All</button>
+                    <button class="btn my-btn-simple">Asian</button>
+                    <button class="btn my-btn-simple">European</button>
+                    <button class="btn my-btn-simple">Middle-East</button>
+                    <button class="btn my-btn-simple">Beach Paradise</button>
+                    <button class="btn my-btn-simple">Nature Retreats</button>
+                    <button class="btn my-btn-simple">Romantic Escapes</button>
+                    <button class="btn my-btn-simple">Cultural Immersion</button>
+                    <button class="btn my-btn-simple">African</button>
+                    <button class="btn my-btn-simple">American</button>
+                </div>
+            </div>
+            <div class="row  col-lg-7 p-4 gap-md-0 gap-4 justify-content-center ">
+                <div class="col-md-4">
+                    <div class="country-card">
+                        <img src="images/disc1.jpg" alt="Indonesia">
+                        <div class="overlay">
+                            <h5>Indonesia</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> 12,392 Destinations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="country-card">
+                        <img src="images/disc2.jpg" alt="Italy">
+                        <div class="overlay">
+                            <h5>Italy</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> 9,865 Destinations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="country-card">
+                        <img src="images/disc3.jpg" alt="Japan">
+                        <div class="overlay">
+                            <h5>Japan</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> 10,231 Destinations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="country-card">
+                        <img src="images/disc4.jpg" alt="Thailand">
+                        <div class="overlay">
+                            <h5>Thailand</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> 9,232 Destinations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="country-card">
+                        <img src="images/disc1.jpg" alt="Turkey">
+                        <div class="overlay">
+                            <h5>Turkey</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> 7,951 Destinations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="country-card">
+                        <img src="images/disc3.jpg" alt="USA">
+                        <div class="overlay">
+                            <h5>USA</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> 20,932 Destinations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container Why-flyeasygo-section">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="row gap-4 gap-md-0">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-bolt"></i>
+                            <h5>Seamless Booking Experience</h5>
+                            <p>With Flypass, booking your flights is effortless and convenient.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h5>Best Pricing and Deals</h5>
+                            <p>Flypass is committed to offering you the best possible value for your travel budget.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <i class="fas fa-key"></i>
+                            <h5>Personalized Travel Recommendations</h5>
+                            <p>Flypass offers personalized travel recommendations tailored to your preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-start text-md-end mt-3">
+                <h6 class="text-muted">WHY</h6>
+                <h2>Discover Why Flypass is Your Ultimate Travel Companion!</h2>
+                <p>As your trusted travel companion, we're dedicated to elevating every aspect of your travel
+                    experience.
+                    We're here to ensure your journey is nothing short of extraordinary.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p>FlyEasyGo is more than just a Hotel booking app; it's your one-stop shop for seamless travel
+                    experiences.</p>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Carrier</a></li>
+                    <li><a href="#">Work With Us</a></li>
+                    <li><a href="#">Blog & News</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>FlyEasyGo@gmail.com</li>
+                    <li>+91 9455 6778 09</li>
+                    <li>India</li>
+                </ul>
+                <div class="footer-social">
+                    <h3>Follow Us On Social</h3>
+                    <div class="social-icons">
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="Facebook"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                                    alt="Twitter"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                                    alt="LinkedIn"></a>
+                        </div>
+                        <br>
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+                                    alt="YouTube"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                    alt="Instagram"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png"
+                                    alt="TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 FlyEasyGO. All rights reserved.
+        </div>
+    </footer>
+
+
+
+    <script src="navbar.js"></script>
+    <!-- Bootstrap & Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <script>
+        // Initialize Flatpickr for date selection
+        flatpickr("#departure-date", {
+            dateFormat: "M d, Y",
+            minDate: "today"
+        });
+
+        flatpickr("#return-date", {
+            dateFormat: "M d, Y",
+            minDate: "today"
+        });
+
+        // Enable/disable return date field
+        document.getElementById('enableReturn').addEventListener('change', function () {
+            document.getElementById('return-date').disabled = !this.checked;
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- <---------loader----------------- -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- -----------header start--------------- -->
+    <header class="header1">
+        <nav>
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="">Support</a></li>
+                <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                        href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg></span></li>
+                <div class="login-buttons">
+                    <li class="login"><a href="login.html">Login</a></li>
+                    <li class="signup"><a href="#" id="openSignupModal">Sign up</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <header class="header2">
+        <nav>
+            <!-- Logo Section -->
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt="Logo"></a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar (hidden by default) -->
+        <ul class="navbar">
+            <div class="crossBtn">X</div>
+            <li><a href="">Home</a></li>
+            <li><a href="">Support</a></li>
+            <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                    href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg></span></li>
+            <div class="login-buttons">
+                <li class="login"><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html">Sign up</a></li>
+            </div>
+        </ul>
+    </header>
+
+    <!-- ----------header end---------------- -->
+
+    <div class="supportPage">
+        <div class="container text-center">
+            <h1 class="text-primary fs-40 text-white text-center">Support Center</h1>
+            <p class="text-white text-center">Browse through our frequently asked questions, tutorials, and other
+                self-help
+                resources to find the answers you need.</p>
+
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="input-group w-50 shadow-sm">
+                    <span class="input-group-text bg-white"><i class="fas fa-search text-primary"></i></span>
+                    <input type="text" class="form-control" placeholder="How can we help?" aria-label="Search">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container help-article-section">
+        <h1 class="help-title">Need help? We've got your back</h1>
+        <div class="row g-3">
+            <!-- Card 1 - Cancel Ticket -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card" data-bs-toggle="modal" data-bs-target="#cancelTicketModal">
+                    <img src="images/cross-icon.png" alt="Cancel Ticket">
+                    <h6>Cancel Ticket</h6>
+                </div>
+            </div>
+
+            <!-- Card 2 - Claim Refund -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card" data-bs-toggle="modal" data-bs-target="#claimRefundModal">
+                    <img src="images/rupee-icon.png" alt="Claim Refund">
+                    <h6>Claim Refund</h6>
+                </div>
+            </div>
+
+            <!-- Card 3 - Reschedule Flight -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card" data-bs-toggle="modal" data-bs-target="#rescheduleFlightModal">
+                    <img src="images/plane-icon.png" alt="Reschedule Flight">
+                    <h6>Reschedule Flight</h6>
+                </div>
+            </div>
+
+            <!-- Card 4 - Wheelchair Request -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card" data-bs-toggle="modal" data-bs-target="#wheelchairRequestModal">
+                    <img src="images/wheel-chair-icon.png" alt="Wheelchair Request">
+                    <h6>Wheelchair Request</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card">
+                    <img src="images/medikit-icon.png" alt="Cancellation Due To Medical Emergency">
+                    <h6>Cancellation Due To Medical Emergency</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card">
+                    <img src="images/Name-correction-icon.png" alt="Name Correction Request">
+                    <h6>Name Correction Request</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card">
+                    <img src="images/SSR-icon.png" alt="Special Service Request">
+                    <h6>Special Service Request</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card help-card">
+                    <img src="images/infant-icon.png" alt="Add Infant">
+                    <h6>Add Infant</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modals for Forms -->
+    <!-- Cancel Ticket Modal -->
+    <div class="modal fade" id="cancelTicketModal" tabindex="-1" aria-labelledby="cancelTicketModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelTicketModalLabel">Cancel Ticket</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="pnr" class="form-label">PNR Number</label>
+                            <input type="text" class="form-control" id="pnr" placeholder="Enter PNR">
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Passenger Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                        </div>
+                        <button type="submit" class="btn btn-danger">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Claim Refund Modal -->
+    <div class="modal fade" id="claimRefundModal" tabindex="-1" aria-labelledby="claimRefundModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="claimRefundModalLabel">Claim Refund</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="pnr-refund" class="form-label">PNR Number</label>
+                            <input type="text" class="form-control" id="pnr-refund" placeholder="Enter PNR">
+                        </div>
+                        <div class="mb-3">
+                            <label for="name-refund" class="form-label">Passenger Name</label>
+                            <input type="text" class="form-control" id="name-refund" placeholder="Enter Name">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reschedule Flight Modal -->
+    <div class="modal fade" id="rescheduleFlightModal" tabindex="-1" aria-labelledby="rescheduleFlightModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rescheduleFlightModalLabel">Reschedule Flight</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="pnr-reschedule" class="form-label">PNR Number</label>
+                            <input type="text" class="form-control" id="pnr-reschedule" placeholder="Enter PNR">
+                        </div>
+                        <div class="mb-3">
+                            <label for="name-reschedule" class="form-label">Passenger Name</label>
+                            <input type="text" class="form-control" id="name-reschedule" placeholder="Enter Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wheelchair Request Modal -->
+    <div class="modal fade" id="wheelchairRequestModal" tabindex="-1" aria-labelledby="wheelchairRequestModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="wheelchairRequestModalLabel">Wheelchair Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="pnr-wheelchair" class="form-label">PNR Number</label>
+                            <input type="text" class="form-control" id="pnr-wheelchair" placeholder="Enter PNR">
+                        </div>
+                        <div class="mb-3">
+                            <label for="name-wheelchair" class="form-label">Passenger Name</label>
+                            <input type="text" class="form-control" id="name-wheelchair" placeholder="Enter Name">
+                        </div>
+                        <button type="submit" class="btn btn-info">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container py-5 Explore-more mb-5">
+        <h2 class="">Explore help articles</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
+            <!-- Card 1 -->
+            <div class="col mt-4">
+                <div class="card shadow-sm border rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-money-bill-wave me-2"></i> Refunds and Charges</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="support-detail.html" class=" text-decoration-none">Refund timelines, policies,
+                                    and
+                                    processes →</a></li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Get a receipt for your
+                                    booking
+                                    →</a></li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Payment security and options
+                                    →</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <hr>
+                        <a href="support-more.html" class="text-primary text-decoration-none"><i
+                                class="fas fa-book-open me-2"></i>More
+                            ></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col mt-4">
+                <div class="card shadow-sm border rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-hotel me-2"></i> Lodging</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="support-detail.html" class=" text-decoration-none">Check-in and out of your
+                                    hotel
+                                    →</a></li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Make special requests →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Booking mistakes and changes
+                                    →</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <hr>
+                        <a href="support-more.html" class="text-primary text-decoration-none"><i
+                                class="fas fa-book-open me-2"></i>More
+                            ></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col mt-4">
+                <div class="card shadow-sm border rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-user-circle me-2"></i> Account</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="support-detail.html" class=" text-decoration-none">View your booking →</a></li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Update account information
+                                    →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Changes to your account
+                                    →</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <hr>
+                        <a href="support-more.html" class="text-primary text-decoration-none"><i
+                                class="fas fa-book-open me-2"></i>More
+                            ></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col mt-4">
+                <div class="card shadow-sm border rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-user-shield me-2"></i> Privacy</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="support-detail.html" class=" text-decoration-none">Update account information
+                                    →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Information about privacy
+                                    →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Privacy and data rights
+                                    →</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <hr>
+                        <a href="support-more.html" class="text-primary text-decoration-none"><i
+                                class="fas fa-book-open me-2"></i>More
+                            ></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="col mt-4">
+                <div class="card shadow-sm border rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-shield-alt me-2"></i> Security</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="support-detail.html" class=" text-decoration-none">Payment security and options
+                                    →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Beware of email scams →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Responsible disclosure →</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <hr>
+                        <a href="support-more.html" class="text-primary text-decoration-none"><i
+                                class="fas fa-book-open me-2"></i>More
+                            ></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="col mt-4">
+                <div class="card shadow-sm border rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-gift me-2"></i> Loyalty & Rewards</h5>
+
+                        <ul class="list-unstyled">
+                            <li><a href="support-detail.html" class=" text-decoration-none">Redeem Hotels.com Rewards
+                                    →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Join Rewards and earn nights
+                                    →</a>
+                            </li>
+                            <li><a href="support-detail.html" class=" text-decoration-none">Collect Rewards stamps →</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <hr>
+                        <a href="support-more.html" class="text-primary text-decoration-none"><i
+                                class="fas fa-book-open me-2"></i>More
+                            ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p>FlyEasyGo is more than just a Hotel booking app; it's your one-stop shop for seamless travel
+                    experiences.</p>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="support-detail.html">Promo</a></li>
+                    <li><a href="support-detail.html">Help</a></li>
+                    <li><a href="support-detail.html">Order</a></li>
+                    <li><a href="support-detail.html">Contact</a></li>
+                    <li><a href="support-detail.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="support-detail.html">Documentation</a></li>
+                    <li><a href="support-detail.html">Carrier</a></li>
+                    <li><a href="support-detail.html">Work With Us</a></li>
+                    <li><a href="support-detail.html">Blog & News</a></li>
+                    <li><a href="support-detail.html">Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="support-detail.html">Terms and Condition</a></li>
+                    <li><a href="support-detail.html">Privacy Policy</a></li>
+                    <li><a href="support-detail.html">Cookies Policy</a></li>
+                    <li><a href="support-detail.html">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>FlyEasyGo@gmail.com</li>
+                    <li>+91 9455 6778 09</li>
+                    <li>India</li>
+                </ul>
+                <div class="footer-social">
+                    <h3>Follow Us On Social</h3>
+                    <div class="social-icons">
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="Facebook"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                                    alt="Twitter"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                                    alt="LinkedIn"></a>
+                        </div>
+                        <br>
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+                                    alt="YouTube"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                    alt="Instagram"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png"
+                                    alt="TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 FlyEasyGO. All rights reserved.
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap Toast Notification -->
+    <div class="position-fixed top-0 start-0 p-3" style="z-index: 2000">
+        <div id="errorToast" class="toast align-items-center modal-error  border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body text-white">
+                    ⚠️ Please fill in both PNR and Passenger Name.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show toast notification
+        function showToast() {
+            let toast = new bootstrap.Toast(document.getElementById('errorToast'));
+            toast.show();
+        }
+
+        // Event listener for form submission
+        document.querySelectorAll(".modal form").forEach(form => {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevent actual form submission
+
+                // Get input fields inside the form
+                let pnrInput = form.querySelector("input[id^='pnr']");
+                let nameInput = form.querySelector("input[id^='name']");
+
+                if (!pnrInput.value.trim() || !nameInput.value.trim()) {
+                    showToast(); // Show error toast if fields are empty
+                } else {
+                    alert("Form submitted successfully!"); // Placeholder for actual submission
+                }
+            });
+        });
+    </script>
+
+
+
+    <script src="navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

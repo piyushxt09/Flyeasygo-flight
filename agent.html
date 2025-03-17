@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .agent-form-container h2 {
+            margin-bottom: 30px !important;
+            text-align: left;
+            padding-left: 20px;
+
+
+        }
+        
+        .image-section {
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 1000px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 900px) {
+            .image-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <---------loader----------------- -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- -----------header start--------------- -->
+    <header class="header1">
+        <nav>
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="">Support</a></li>
+                <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                        href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg></span></li>
+                <div class="login-buttons">
+                    <li class="login"><a href="login.html">Login</a></li>
+                    <li class="signup"><a href="#" id="openSignupModal">Sign up</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <header class="header2">
+        <nav>
+            <!-- Logo Section -->
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt="Logo"></a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar (hidden by default) -->
+        <ul class="navbar">
+            <div class="crossBtn">X</div>
+            <li><a href="">Home</a></li>
+            <li><a href="">Support</a></li>
+            <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                    href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg></span></li>
+            <div class="login-buttons">
+                <li class="login"><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html">Sign up</a></li>
+            </div>
+        </ul>
+    </header>
+
+    <!-- ----------header end---------------- -->
+
+
+    <div class="container">
+        <div class="row form-section align-items-start">
+
+
+            <div class="col-lg-6 ">
+                <div class="agent-form-container">
+                    <h2>Registration</h2>
+
+                    <!-- Progress Indicator -->
+                    <div class="progress-container">
+                        <div class="progress-step active" data-step="1">1 <br> <span>Basic Details</span></div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="2">2 <br> <span>Business Info</span></div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="3">3 <br> <span>Contact Details</span></div>
+                    </div>
+
+                    <form class="agent-form" id="agentForm">
+                        <!-- Step 1 -->
+                        <fieldset class="form-step active">
+                            <legend>Personal Details</legend>
+
+                            <label for="agency-name">Agency Name *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                <input type="text" id="agency-name" class="form-control" required>
+                            </div>
+
+                            <label for="country">Country *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                <select id="country" class="form-control" required>
+                                    <option>Select Country</option>
+                                </select>
+                            </div>
+
+                            <label for="city">City *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-city"></i></span>
+                                <select id="city" class="form-control" required>
+                                    <option>Select City</option>
+                                </select>
+                            </div>
+
+                            <label for="agency-email">Agency Email *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" id="agency-email" class="form-control" required>
+                            </div>
+
+                            <label for="first-name">First Name *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" id="first-name" class="form-control" required>
+                            </div>
+
+                            <label for="last-name">Last Name *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" id="last-name" class="form-control" required>
+                            </div>
+
+                            <label for="Designation">Designation *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                                <input type="text" id="Designation" class="form-control" required>
+                            </div>
+
+                            <div class="form-navigation">
+                                <button type="button" class="next-btn">Next</button>
+                            </div>
+                        </fieldset>
+
+                        <!-- Step 2 -->
+                        <fieldset class="form-step">
+                            <legend>Business Information</legend>
+
+                            <label for="business-nature">Nature of Business *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                                <select id="business-nature" class="form-control" required>
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <label for="business-type">Business Type *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                <select id="business-type" class="form-control" required>
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <label for="Currency">Preferred Currency *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+                                <select id="Currency" class="form-control" required>
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <label for="Address">Address *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                <input type="text" id="Address" class="form-control" required>
+                            </div>
+
+                            <label for="Pincode">Pincode/Zipcode/Postcode *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
+                                <input type="text" id="Pincode" class="form-control" required>
+                            </div>
+
+                            <label for="Telephone">Telephone</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="text" id="Telephone" class="form-control" required>
+                            </div>
+
+                            <div class="form-navigation">
+                                <button type="button" class="back-btn">Back</button>
+                                <button type="button" class="next-btn">Next</button>
+                            </div>
+                        </fieldset>
+
+                        <!-- Step 3 -->
+                        <fieldset class="form-step">
+                            <legend>Contact Details</legend>
+
+                            <label for="mobile">Mobile Number *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                <input type="text" id="mobile" class="form-control" required>
+                            </div>
+
+                            <label for="Fax">Fax *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-fax"></i></span>
+                                <input type="text" id="Fax" class="form-control" required>
+                            </div>
+
+                            <label for="Time">Time Zone *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                <select id="Time" class="form-control" required>
+                                    <option>Select</option>
+                                </select>
+                            </div>
+
+                            <label for="Website">Website *</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                <input type="text" id="Website" class="form-control" required>
+                            </div>
+
+                            <div class="form-navigation">
+                                <button type="button" class="back-btn">Back</button>
+                                <button type="submit" class="submit-btn">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="image-section" style="background-image: url('images/hotel-image.webp');">
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i> +256 787 667 581
+                    </div>
+                    <div class="image-text" style="font-size: 40px;">Register to FlyEasyGO <p style="font-size: 14px;">
+                            Homes
+                            as
+                            unique as you.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p>FlyEasyGo is more than just a Hotel booking app; it's your one-stop shop for seamless travel
+                    experiences.</p>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Carrier</a></li>
+                    <li><a href="#">Work With Us</a></li>
+                    <li><a href="#">Blog & News</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>FlyEasyGo@gmail.com</li>
+                    <li>+91 9455 6778 09</li>
+                    <li>India</li>
+                </ul>
+                <div class="footer-social">
+                    <h3>Follow Us On Social</h3>
+                    <div class="social-icons">
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="Facebook"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                                    alt="Twitter"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                                    alt="LinkedIn"></a>
+                        </div>
+                        <br>
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+                                    alt="YouTube"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                    alt="Instagram"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png"
+                                    alt="TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 FlyEasyGO. All rights reserved.
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentStep = 0;
+            const steps = document.querySelectorAll(".form-step");
+            const progressSteps = document.querySelectorAll(".progress-step");
+
+            function updateForm() {
+                steps.forEach((step, index) => {
+                    step.classList.toggle("active", index === currentStep);
+                });
+                progressSteps.forEach((step, index) => {
+                    step.classList.toggle("active", index <= currentStep);
+                });
+            }
+
+            document.querySelectorAll(".next-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    if (currentStep < steps.length - 1) {
+                        currentStep++;
+                        updateForm();
+                    }
+                });
+            });
+
+            document.querySelectorAll(".back-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        updateForm();
+                    }
+                });
+            });
+
+            updateForm();
+        });
+    </script>
+
+    <script src="navbar.js"></script>
+</body>
+
+</html>

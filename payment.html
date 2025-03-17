@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/order.css">
+    <style>
+        .hotel-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .checkin-out {
+            display: flex;
+            gap: 15px;
+        }
+
+        .booking-content2 {
+            padding: 12px;
+            height: 350px;
+            display: flex;
+        }
+
+        .booking-info {
+            font-size: 14px;
+            margin-bottom: 0px;
+            margin-left: -0px;
+        }
+
+        .booking-info span {
+            color: #00000090;
+            font-size: 12px;
+        }
+
+        .booking-details2 .reviews {
+            display: flex;
+            margin-top: -6px !important;
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        .booking-details2 .dates {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px auto;
+            align-items: start;
+            gap: 30px;
+            flex-direction: column-reverse;
+        }
+
+        .booking-details2 .reviews {
+            display: block;
+            margin-top: 0px !important;
+            align-items: center;
+            position: relative;
+            left: 80px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <---------loader----------------- -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- -----------header start--------------- -->
+    <header class="header1">
+        <nav>
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="">Home</a></li>
+                <li><a href="">Support</a></li>
+                <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                        href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg></span></li>
+                <div class="login-buttons">
+                    <li class="login"><a href="login.html">Login</a></li>
+                    <li class="signup"><a href="signup.html">Sign up</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+    <header class="header2">
+        <nav>
+            <!-- Logo Section -->
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt="Logo"></a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar (hidden by default) -->
+        <ul class="navbar">
+            <div class="crossBtn">X</div>
+            <li><a href="">Home</a></li>
+            <li><a href="">Support</a></li>
+            <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                    href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg></span></li>
+            <div class="login-buttons">
+                <li class="login"><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html">Sign up</a></li>
+            </div>
+        </ul>
+    </header>
+
+    <!-- ----------header end---------------- -->
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="payment-container">
+                        <h2>Payment Method</h2>
+                        <p class="mt-3 mb-4 text-muted">Select a payment method below. FlyEasyGo processes your payment
+                            securely with end-to-end
+                            encryption.</p>
+                        <div class="payment-tabs">
+                            <div class="tab active" onclick="showTab('credit-card')"><i
+                                    class="fa-regular fa-credit-card"></i> Credit Card</div>
+                            <div class="tab" onclick="showTab('upi')"><i class="fa-solid fa-qrcode"></i> UPI</div>
+                            <div class="tab" onclick="showTab('net-banking')"><i class="fa-solid fa-landmark"></i> Net
+                                Banking</div>
+                            <div class="tab" onclick="showTab('gift-cards')"><i class="fa-solid fa-gift"></i> Gift Cards
+                                & e-wallets</div>
+                            <div class="tab" onclick="showTab('emi')"><i class="fa-solid fa-coins"></i> EMI</div>
+                        </div>
+                        <div class="payment-content active" id="credit-card">
+                            <h3>Credit card details</h3>
+                            <div class="form-group">
+                                <!-- <label>Name on card</label> -->
+                                <input type="text" placeholder="Name on card">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label>Card number</label> -->
+                                <input type="text" placeholder="Card number">
+                            </div>
+                            <div class="inline-fields">
+                                <div class="form-group">
+                                    <!-- <label>Expiration date</label> -->
+                                    <input type="text" placeholder="Expiration date">
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label>CCV <i class="fa-solid fa-circle-info info-icon"></i></label> -->
+                                    <input type="text" placeholder="CVV">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-content form-group" id="upi">
+                            <p>Enter your UPI ID:</p>
+                            <input type="text" placeholder="example@upi">
+                        </div>
+                        <div class="payment-content form-group" id="net-banking">
+                            <p>Select your bank:</p>
+                            <select>
+                                <option>Bank 1</option>
+                                <option>Bank 2</option>
+                                <option>Bank 3</option>
+                            </select>
+                        </div>
+                        <div class="payment-content form-group" id="gift-cards">
+                            <p>Enter your Gift Card Code:</p>
+                            <input type="text" placeholder="XXXX-XXXX-XXXX">
+                        </div>
+                        <div class="payment-content form-group" id="emi">
+                            <p>Select EMI Plan:</p>
+                            <select>
+                                <option>6 months</option>
+                                <option>12 months</option>
+                                <option>24 months</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="account-container">
+                        <h2>Create an account</h2>
+                        <p>FlyEasyGo is free to use as a guest, but if you create an account today, you can save and
+                            view flights, manage your trips, earn rewards, and more.</p>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="save-card">
+                            <label for="save-card">Save card and create account for later</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Email address or phone number">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password">
+                        </div>
+                        <div class="or-divider">or</div>
+                        <button class="google-form"><i class="fa-brands fa-google"></i> Sign up with Google</button>
+                        <button class="facebook-form"><i class="fa-brands fa-facebook"></i> Continue with
+                            Facebook</button>
+
+                        <h2 class="mt-5">Cancellation policy</h2>
+                        <p class="mt-3">This flight has a flexible cancellation policy. If you cancel or change your
+                            flight up to 30
+                            days before the departure date, you are eligible for a free refund. All flights booked on
+                            Tripma are backed by our satisfaction guarantee, however cancellation policies vary by
+                            airline. See the full cancellation policy for this flight.</p>
+                        <div class="button-container">
+                            <button>Back to Room Details</button>
+                            <button class="confirm-button">Confirm and pay</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3">
+                    <div class="steps">
+                        <div class="step completed">
+                            <div class="circle"><i class="fas fa-check"></i></div>
+                            Choose Flight
+                        </div>
+                        <div class="step completed">
+                            <div class="circle"><i class="fas fa-check"></i></div>
+                            Flight Details
+                        </div>
+                        <div class="step completed">
+                            <div class="circle">3</div>
+                            Payment
+                        </div>
+                    </div>
+                    <div class="fare-summary">Fare Summary</div>
+
+                    <div class="airlines-total p-3">
+                        <!-- First Flight -->
+                        <div class="airline-item border-bottom pb-2">
+                            <img src="images/image 25.png" alt="Hawaiian Airlines" class="airline-logo">
+                            <div class="airline-info">
+                                <strong>Hawaiian Airlines</strong><br>
+                                <span class="text-muted">FIG4312</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="fw-bold">16h 45m (+1d)</span><br>
+                                <span class="flight-time">7:00 AM - 4:15 PM</span><br>
+                                <span class="stop-info">2h 45m in HNL</span>
+                            </div>
+                        </div>
+
+                        <!-- Second Flight -->
+                        <div class="airline-item pt-2">
+                            <img src="images/image 25.png" alt="Hawaiian Airlines" class="airline-logo">
+                            <div class="airline-info">
+                                <strong>Hawaiian Airlines</strong><br>
+                                <span class="text-muted">FIG4312</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="fw-bold">16h 45m (+1d)</span><br>
+                                <span class="flight-time">7:00 AM - 4:15 PM</span><br>
+                                <span class="stop-info">2h 45m in HNL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" fare-summary-details">
+                        <div class="summary-details">
+                            <div class="summary-item">
+                                <span>Sub Total</span>
+                                <span>$702</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Taxes and Fees</span>
+                                <span>$66</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="total">
+                            <span class="fw-bold">Payable Amount</span>
+                            <span>$768</span>
+                        </div>
+                    </div>
+
+
+                    <div class="fare-summary" style="margin-top: 50px;">Promo Code</div>
+                    <div class="promo-code-container position-sticky" style="top: 110px;">
+                        <div>
+                            <input type="text" id="promoInput" placeholder="YOUR PROMO CODE" />
+                            <button onclick="applyPromo()">Apply</button>
+                        </div>
+                        <div class="promo-code-list">
+                            <div class="promo-code-item" id="item1">
+                                <div>
+                                    <p class="promo-head">Wanderlust Hotel Agency</p>
+                                    <p>15% Off on All-Inclusive Vacation Packages</p>
+                                    <span id="promo1">WANDER15 <button class="copy-btn"
+                                            onclick="togglePromo('promo1', 'item1', this)"><i
+                                                class="fas fa-copy"></i></button></span>
+                                </div>
+
+                            </div>
+
+                            <div class="promo-code-item" id="item2">
+                                <div>
+                                    <p class="promo-head">Wanderlust Hotel Agency</p>
+                                    <p>15% Off on All-Inclusive Vacation Packages</p>
+                                    <span id="promo2">WANDER15 <button class="copy-btn"
+                                            onclick="togglePromo('promo2', 'item2', this)"><i
+                                                class="fas fa-copy"></i></button></span>
+                                </div>
+
+                            </div>
+
+                            <div class="promo-code-item" id="item3">
+                                <div>
+                                    <p class="promo-head">Wanderlust Hotel Agency</p>
+                                    <p>15% Off on All-Inclusive Vacation Packages</p>
+                                    <span id="promo3">WANDER15 <button class="copy-btn"
+                                            onclick="togglePromo('promo3', 'item3', this)"><i
+                                                class="fas fa-copy"></i></button></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="payment-card-section d-flex">
+            <div class="card">
+                <img src="images/payment-image.png" class="card-img-top" alt="Shanghai">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title"><a href="#" style="color: black;">The Bund, <span
+                                    class="text-black">Shanghai</span></a></h5>
+                                    <p class="fw-bold">$598</p>
+                    </div>
+                    <p class="text-muted fs-6">China’s most international city</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/payment-image.png" class="card-img-top" alt="Shanghai">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title"><a href="#" style="color: black;">The Bund, <span
+                                    class="text-black">Shanghai</span></a></h5>
+                                    <p class="fw-bold">$598</p>
+                    </div>
+                    <p class="text-muted fs-6">China’s most international city</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/payment-image.png" class="card-img-top" alt="Shanghai">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title"><a href="#" style="color: black;">The Bund, <span
+                                    class="text-black">Shanghai</span></a></h5>
+                                    <p class="fw-bold">$598</p>
+                    </div>
+                    <p class="text-muted fs-6">China’s most international city</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p>FlyEasyGo is more than just a Hotel booking app; it's your one-stop shop for seamless travel
+                    experiences.</p>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Carrier</a></li>
+                    <li><a href="#">Work With Us</a></li>
+                    <li><a href="#">Blog & News</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>FlyEasyGo@gmail.com</li>
+                    <li>+91 9455 6778 09</li>
+                    <li>India</li>
+                </ul>
+                <div class="footer-social">
+                    <h3>Follow Us On Social</h3>
+                    <div class="social-icons">
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="Facebook"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                                    alt="Twitter"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                                    alt="LinkedIn"></a>
+                        </div>
+                        <br>
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+                                    alt="YouTube"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                    alt="Instagram"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png"
+                                    alt="TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 FlyEasyGO. All rights reserved.
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.payment-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+    <script src="navbar.js"></script>
+
+</body>
+
+</html>

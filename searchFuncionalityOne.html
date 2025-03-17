@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Functionality</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="searchfuc.css">
+
+    <script>
+        const minRange = document.getElementById("minRange");
+        const maxRange = document.getElementById("maxRange");
+        const minPrice = document.getElementById("minPrice");
+        const maxPrice = document.getElementById("maxPrice");
+        const sliderTrack = document.querySelector(".slider-track");
+
+        function updateSlider() {
+            const minValue = parseInt(minRange.value);
+            const maxValue = parseInt(maxRange.value);
+            minPrice.innerText = `$${minValue}`;
+            maxPrice.innerText = `$${maxValue}`;
+
+            const minPercent = (minValue / 25000) * 100;
+            const maxPercent = (maxValue / 25000) * 100;
+            sliderTrack.style.left = minPercent + "%";
+            sliderTrack.style.right = (100 - maxPercent) + "%";
+        }
+
+        minRange.addEventListener("input", function () {
+            if (parseInt(minRange.value) > parseInt(maxRange.value) - 1000) {
+                minRange.value = parseInt(maxRange.value) - 1000;
+            }
+            updateSlider();
+        });
+
+        maxRange.addEventListener("input", function () {
+            if (parseInt(maxRange.value) < parseInt(minRange.value) + 1000) {
+                maxRange.value = parseInt(minRange.value) + 1000;
+            }
+            updateSlider();
+        });
+
+        updateSlider(); // Initialize values on load
+    </script>
+
+</head>
+
+<body>
+
+    <!-- <---------loader----------------- -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- -----------header start--------------- -->
+    <header class="header1">
+        <nav>
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt=""></a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="">Support</a></li>
+                <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                        href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg></span></li>
+                <div class="login-buttons">
+                    <li class="login"><a href="login.html">Login</a></li>
+                    <li class="signup"><a href="signup.html">Sign up</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="header2">
+        <nav>
+            <!-- Logo Section -->
+            <ul class="logo">
+                <li><a href=""><img src="images/logo.png" alt="Logo"></a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar (hidden by default) -->
+        <ul class="navbar">
+            <div class="crossBtn">X</div>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="">Support</a></li>
+            <li class="Currency"><img style="max-width: 6%; margin-right: 10px;" src="images/india.png" alt=""><a
+                    href="">Currency</a><span style="position: relative; top: 2px; left: 6px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg></span></li>
+            <div class="login-buttons">
+                <li class="login"><a href="login.html">Login</a></li>
+                <li class="signup"><a href="signup.html">Sign up</a></li>
+            </div>
+        </ul>
+    </header>
+
+
+    <!-- ----------header end---------------- -->
+
+
+    <section style="margin: 50px auto;">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="flight-search-bar ">
+                    <!-- Flight Type Dropdown -->
+                    <!-- Toggle Button for Mobile -->
+                    <div class="row  align-items-center">
+                        <button class="btn my-button d-md-none col-5" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#filtersCollapse">
+                            <i class="bi bi-funnel"></i> Change flight
+                        </button>
+                        <!-- Toggle Button for Mobile -->
+                        <button class="btn my-button d-md-none col-6 ms-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#searchFormCollapse">
+                            <i class="fas fa-search"></i> Search Options
+                        </button>
+                    </div>
+
+                    <!-- Dropdowns (Hidden on Mobile, Shown on Desktop) -->
+                    <div id="filtersCollapse" class="collapse d-md-flex gap-2 flex-column flex-md-row mt-2">
+                        <!-- Flight Type Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown">
+                                Select flight
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">One Way</a></li>
+                                <li><a class="dropdown-item" href="#">Round Trip</a></li>
+                                <li><a class="dropdown-item" href="#">Multi-City</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Class Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown">
+                                Select class
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Economy</a></li>
+                                <li><a class="dropdown-item" href="#">Business</a></li>
+                                <li><a class="dropdown-item" href="#">First Class</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Airline Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown">
+                                Select airline
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Emirates</a></li>
+                                <li><a class="dropdown-item" href="#">Qatar Airways</a></li>
+                                <li><a class="dropdown-item" href="#">Lufthansa</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- More Options Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown">
+                                More
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Non-stop flights</a></li>
+                                <li><a class="dropdown-item" href="#">Flexible dates</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <!-- Search Form (Hidden on Mobile, Visible on Desktop) -->
+                    <div id="searchFormCollapse"
+                        class="collapse d-md-flex gap-2 align-items-start flex-column flex-md-row align-items-md-center mt-2">
+                        <!-- From Input -->
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-plane-departure"></i></span>
+                            <input type="text" class="form-control" placeholder="From">
+                        </div>
+
+                        <!-- Swap Button -->
+                        <button class="btn swap-btn"><i class="fas fa-exchange-alt"></i></button>
+
+                        <!-- To Input -->
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
+                            <input type="text" class="form-control" placeholder="To">
+                        </div>
+
+                        <!-- Date Picker -->
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                            <input type="text" class="form-control" id="departure-date"
+                                placeholder="Departing - Returning">
+                        </div>
+
+                        <!-- Travelers Input -->
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" placeholder="Travellers">
+                        </div>
+
+                        <!-- Search Button -->
+                        <button class="btn my-button"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="filter-heading">
+                    <h2 style="font-size: 20px;">Filter By</h2>
+                    <button onclick="toggleFilterAgain()" class="button-show">Show</button>
+                </div>
+                <div class="filter-container Filter-Active" id="toggleFilter">
+                    <div class="filter-section">
+                        <div>
+                            <h3 class="mb-2">Stop</h3>
+                            <h5 class="mb-2">From</h5>
+                        </div>
+                        <ul>
+                            <li><label> <input type="checkbox">Nonstop(23)</label> <span>$110</span> </li>
+                            <li><label><input type="checkbox">1 Stop(4)</label><span>$340</span> </li>
+                            <li><label><input type="checkbox">2 + Stops(2)</label><span>$349</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <div>
+                            <h3 class="mb-2">Airlines</h3>
+                            <h5 class="mb-2">From</h5>
+                        </div>
+                        <ul>
+                            <li><label><input type="checkbox">ABC Air Technologies</label><span>$203</span></li>
+                            <li><label><input type="checkbox">ABC Airlines</label><span>$160</span></li>
+                            <li><label><input type="checkbox">XYZ Airways</label><span>$212</span></li>
+                            <li><label><input type="checkbox">Bop Links</label><span>$219</span></li>
+                            <li><label><input type="checkbox">EDF Express</label><span>$212</span></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+                    <div class="filter-buttons">
+                        <button class="reset-button">Reset</button>
+                        <button class="apply-button">Apply Filters</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row filter-ROW">
+                <div class="col-lg-3">
+
+                    <div class="filter-container" id="toggleFilter">
+                        <div class="filter-section">
+                            <div>
+                                <h3 class="mb-2">Stop</h3>
+                                <h5 class="mb-2">From</h5>
+                            </div>
+                            <ul>
+                                <li><label> <input type="checkbox">Nonstop(23)</label> <span>$110</span> </li>
+                                <li><label><input type="checkbox">1 Stop(4)</label><span>$340</span> </li>
+                                <li><label><input type="checkbox">2 + Stops(2)</label><span>$349</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="filter-section">
+                            <div>
+                                <h3 class="mb-2">Airlines</h3>
+                                <h5 class="mb-2">From</h5>
+                            </div>
+                            <ul>
+                                <li><label><input type="checkbox">ABC Air Technologies</label><span>$203</span></li>
+                                <li><label><input type="checkbox">ABC Airlines</label><span>$160</span></li>
+                                <li><label><input type="checkbox">XYZ Airways</label><span>$212</span></li>
+                                <li><label><input type="checkbox">Bop Links</label><span>$219</span></li>
+                                <li><label><input type="checkbox">EDF Express</label><span>$212</span></li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 mb-5">
+                            <h5>Price Range</h5>
+                            <div class="d-flex justify-content-between">
+                                <span id="minPrice">$0</span>
+                                <span id="maxPrice">$25000</span>
+                            </div>
+                            <div class="range-slider mt-2">
+                                <div class="slider-track"></div>
+                                <input type="range" min="0" max="25000" value="5000" id="minRange" class="range-input">
+                                <input type="range" min="0" max="25000" value="20000" id="maxRange" class="range-input">
+                            </div>
+                        </div>
+
+
+
+                        <div class="filter-buttons">
+                            <button class="reset-button">Reset</button>
+                            <button class="apply-button">Apply Filters</button>
+                        </div>
+                    </div>
+                    <div class="deal-card">
+                        <div class="deal-photo">
+                            <img src="images/shopflight.png" alt="Sale Image">
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-title">We've found you a great deal!</div>
+                            <div class="deal-text">
+                                Get more, spend less with up to $575 off when you book your flight + stay together.
+                            </div>
+                            <a href="#" class="deal-button">Shop flight</a>
+                        </div>
+                    </div>
+
+
+                    <div class="deal-card">
+                        <div class="deal-title" style="padding: 20px; text-align: center; margin-bottom: -20px;">Tap
+                            into the world of travel</div>
+                        <div class="deal-photo" style="margin-bottom: -20px;">
+                            <img src="images/qrcode.png" alt="Sale Image">
+                        </div>
+                        <div class="deal-content">
+
+                            <div class="deal-text">
+                                Scan the QR code with your device camera and download our app
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="deal-card">
+                        <div class="deal-photo">
+                            <img src="images/bag.png" alt="Sale Image">
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-title">Log-in and get exclusive discounts!</div>
+                            <div class="deal-text">
+                                Log in and Unlock all the exclusive offers and use wallet etc.
+                            </div>
+                            <a href="#" class="deal-button">Login/Create Account</a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-9">
+                    <div class="container price-flight-section ">
+                        <div class="pricing-table">
+                            <!-- Pricing Table Header -->
+                            <div class="pricing-header" data-bs-toggle="collapse" data-bs-target="#pricingDetails">
+                                <div>
+                                    <i class="fas fa-table"></i> Pricing Table
+                                </div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+
+                            <!-- Pricing Options -->
+                            <div id="pricingDetails" class="collapse show">
+                                <div class="pricing-options d-flex flex-column flex-md-row">
+                                    <!-- Recommended -->
+                                    <div class="option active d-flex align-items-center gap-3">
+                                        <div class="icon"><i class="fas fa-thumbs-up text-primary"></i></div>
+                                        <div>
+                                            <strong>Recommended</strong>
+                                            <div>$500 - 10h 20m</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Fastest -->
+                                    <div class="option d-flex align-items-center gap-3">
+                                        <div class="icon"><i class="fas fa-bolt"></i></div>
+                                        <div>
+                                            <strong>Fastest</strong>
+                                            <div>$500 - 10h 20m</div>
+                                        </div>
+                                    </div>
+                                    <!-- Cheapest -->
+                                    <div class="option d-flex align-items-center gap-3">
+                                        <div class="icon"><i class="fas fa-dollar-sign"></i></div>
+                                        <div>
+                                            <strong>Cheapest</strong>
+                                            <div>$500 - 10h 20m</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 mt-5 flex-wrap flex-md-column ">
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="deal-photo" style="margin-top: 30px;">
+                        <img src="images/banner.png" alt="Sale Image">
+                    </div>
+
+                    <div class="d-flex gap-3 mt-5 flex-wrap">
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+                        <div class="flight-card-section w-100" style="max-width: 1000px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div>
+                                    <span>Travel Class: <strong>Economy</strong></span>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <span class="text-muted">Sun, 29 Jan 2023</span>
+                            <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">Moi Intl, Mombasa, Kenya</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="">9hr 50min</p>
+                                    <i class="fas fa-plane text-muted"></i>
+                                    <p class="text-muted">0 stop</p>
+                                </div>
+                                <div class="text-start text-md-center">
+                                    <h5>14:50</h5>
+                                    <p class="text-muted">JFK Terminal, Nairobi, Kenya</p>
+                                </div>
+                                <div class="Price-section d-flex flex-md-column flex-row  gap-5  gap-md-0">
+                                    <span class="price">$18,500</span>
+                                    <button class="btn book-btn" data-bs-toggle="modal"
+                                        data-bs-target="#bookingModal">Book Now</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>100 seats remaining</span>
+                                <span class="refundable">Partially Refundable</span>
+                                <span class="view-details">View flight details</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Modal for Booking -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel">Confirm Your Booking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> -->
+                <div class="modal-body">
+                    <div class="flight-booking-card">
+                        <div class="d-flex justify-content-around flex-column flex-md-row">
+                            <div class="d-flex flex-column align-items-start align-items-md-end">
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="text-muted"><i class="fas fa-plane"></i> Departure</span>
+                                    <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                        class="airline-logo me-2">
+                                    <strong>ABC Airline</strong>
+                                </div>
+                                <div class="mt-2">
+                                    <span class="fw-bold">14:50</span> → <span class="fw-bold">14:50</span>
+                                    <p class="price mt-1">$18,500</p>
+                                </div>
+                            </div>
+
+
+                            <div class="d-flex gap-3 align-items-center justify-content-between">
+                                <div>
+                                    <p class="price Myprice">$37,000</p>
+                                    <span class="text-muted">Per adult</span>
+                                </div>
+                                <button class="btn my-button mt-2" data-bs-toggle="modal"
+                                    data-bs-target="#flightModal">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="flightModal" tabindex="-1" aria-labelledby="flightModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xxl">
+            <div class="modal-content">
+                <div class="modal-header d-flex flex-column-reverse flex-md-row ">
+                    <h5 class="modal-title text-muted"><span style="color: green;">3 Fare </span> options available for
+                        you trip</h5>
+                    <div class="d-flex align-items-center ">
+                        <div class="d-flex align-items-center">
+                            <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                class="airline-logo me-2">
+                            <strong>ABC Airline</strong>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+
+
+                    <div id="departureSection">
+                        <div
+                            class="d-flex gap-2 gap-md-4 flex-column flex-md-row align-items-start align-items-md-center my-3 ">
+                            <p style="margin-bottom: 0px;">Moi Intl → JFK Terminal</p>
+                            <div>
+                                <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                    class="airline-logo me-2">
+                                <strong>ABC Airline</strong>
+                            </div>
+                            <p class="text-muted" style="margin-bottom: 0px;">Tue, 22 Oct 24 · Departure at 22:40 -
+                                Arrival at 01:25 (+1 day)</p>
+                        </div>
+                        <div class="d-flex gap-3 flex-column flex-md-row">
+
+                            <div class="flight-card">
+                                <div class="d-flex justify-content-between align-items-center gap-5">
+                                    <h5>$18,500 <span>per adult</span></h5>
+                                    <div>
+                                        <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                            class="airline-logo me-2">
+                                        <strong>ABC Airline</strong>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <!-- Baggage Section -->
+                                    <h6 class="section-title">Baggage</h6>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span class="text-green">7
+                                            Kgs</span> Cabin Baggage</p>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span class="text-green">15
+                                            Kgs</span> Check-in Baggage</p>
+
+                                    <!-- Flexibility Section -->
+                                    <h6 class="section-title mt-3">Flexibility</h6>
+                                    <p> <span class="text-red">&#x2212; Lower
+                                            Cancellation fee</span> of $15,000 (up to 2 hours before departure)</p>
+                                    <p> <span class="text-red"> &#x2212; Lower Date
+                                            Change</span> fee $1200 up to 2 hrs before Departure</p>
+
+                                    <!-- Seats, Meals & More -->
+                                    <h6 class="section-title mt-3">Seats, Meals & More</h6>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span
+                                            class="text-green">Free</span> Seats</p>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span
+                                            class="text-green">Complimentary</span> Meals</p>
+                                </div>
+                                <button class="btn  w-100 my-button" data-bs-toggle="modal"
+                                    data-bs-target="#guestLoginModal">Book Now</button>
+                            </div>
+                            <div class="flight-card">
+                                <div class="d-flex justify-content-between align-items-center gap-5">
+                                    <h5>$18,500 <span>per adult</span></h5>
+                                    <div>
+                                        <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                            class="airline-logo me-2">
+                                        <strong>ABC Airline</strong>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <!-- Baggage Section -->
+                                    <h6 class="section-title">Baggage</h6>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span class="text-green">7
+                                            Kgs</span> Cabin Baggage</p>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span class="text-green">15
+                                            Kgs</span> Check-in Baggage</p>
+
+                                    <!-- Flexibility Section -->
+                                    <h6 class="section-title mt-3">Flexibility</h6>
+                                    <p> <span class="text-red">&#x2212; Lower
+                                            Cancellation fee</span> of $15,000 (up to 2 hours before departure)</p>
+                                    <p> <span class="text-red"> &#x2212; Lower Date
+                                            Change</span> fee $1200 up to 2 hrs before Departure</p>
+
+                                    <!-- Seats, Meals & More -->
+                                    <h6 class="section-title mt-3">Seats, Meals & More</h6>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span
+                                            class="text-green">Free</span> Seats</p>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span
+                                            class="text-green">Complimentary</span> Meals</p>
+                                </div>
+                                <button class="btn  w-100 my-button" data-bs-toggle="modal"
+                                    data-bs-target="#guestLoginModal">Book Now</button>
+                            </div>
+                            <div class="flight-card">
+                                <div class="d-flex justify-content-between align-items-center gap-5">
+                                    <h5>$18,500 <span>per adult</span></h5>
+                                    <div>
+                                        <img src="images/Plane flying over the planet.png" alt="Airline Logo"
+                                            class="airline-logo me-2">
+                                        <strong>ABC Airline</strong>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <!-- Baggage Section -->
+                                    <h6 class="section-title">Baggage</h6>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span class="text-green">7
+                                            Kgs</span> Cabin Baggage</p>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span class="text-green">15
+                                            Kgs</span> Check-in Baggage</p>
+
+                                    <!-- Flexibility Section -->
+                                    <h6 class="section-title mt-3">Flexibility</h6>
+                                    <p> <span class="text-red">&#x2212; Lower
+                                            Cancellation fee</span> of $15,000 (up to 2 hours before departure)</p>
+                                    <p> <span class="text-red"> &#x2212; Lower Date
+                                            Change</span> fee $1200 up to 2 hrs before Departure</p>
+
+                                    <!-- Seats, Meals & More -->
+                                    <h6 class="section-title mt-3">Seats, Meals & More</h6>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span
+                                            class="text-green">Free</span> Seats</p>
+                                    <p><i class="fas fa-check-circle text-green"></i> <span
+                                            class="text-green">Complimentary</span> Meals</p>
+                                </div>
+                                <button class="btn  w-100 my-button" data-bs-toggle="modal"
+                                    data-bs-target="#guestLoginModal">Book Now</button>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="guestLoginModal" tabindex="-1" aria-labelledby="guestLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-3">
+                <div class="modal-header border-0">
+                    <img src="images/logo.png" alt="FlyEasyGo Logo" class="mx-auto d-block" style="max-width: 150px;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="fw-medium">Want to login or Continue as Guest?</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-secondary w-50"
+                            onclick="window.location.href='order-summary.html';">Continue as Guest</button>
+                        <button class="btn my-button w-50" onclick="window.location.href='login.html';">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p>FlyEasyGo is more than just a Hotel booking app; it's your one-stop shop for seamless travel
+                    experiences.</p>
+            </div>
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Promo</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Carrier</a></li>
+                    <li><a href="#">Work With Us</a></li>
+                    <li><a href="#">Blog & News</a></li>
+                    <li><a href="#">Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>FlyEasyGo@gmail.com</li>
+                    <li>+91 9455 6778 09</li>
+                    <li>India</li>
+                </ul>
+                <div class="footer-social">
+                    <h3>Follow Us On Social</h3>
+                    <div class="social-icons">
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="Facebook"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                                    alt="Twitter"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                                    alt="LinkedIn"></a>
+                        </div>
+                        <br>
+                        <div>
+
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733590.png"
+                                    alt="YouTube"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                    alt="Instagram"></a>
+                            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png"
+                                    alt="TikTok"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 FlyEasyGO. All rights reserved.
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        function validateForme(event) {
+            event.preventDefault();
+            let destination = document.getElementById("destination").value.trim();
+            let checkIn = document.getElementById("check-in").value.trim();
+            let checkOut = document.getElementById("check-out").value.trim();
+            let guests = document.getElementById("guests-input").value.trim();
+            let country = document.getElementById("Country").value.trim();
+
+            if (!destination || !checkIn || !checkOut || !guests || !country) {
+                showToast("Please fill in all required fields.");
+            } else {
+                window.location.href = 'searchFuncionality.html';
+            }
+        }
+
+        function showToast(message) {
+            document.getElementById("toastMessage").innerText = message;
+            let toast = new bootstrap.Toast(document.getElementById("errorToast"));
+            toast.show();
+        }
+    </script>
+
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Flatpickr on the Check-In input field
+        flatpickr("#check-in", {
+            dateFormat: "F j, Y",  // Format: October 25, 2023
+            defaultDate: "today",  // Optional: set default to today
+            minDate: "today",      // Prevent selecting past dates
+            showMonths: 1,         // Show single month
+            mode: "single",        // Single date selection
+            disableMobile: "true", // Force desktop calendar on mobile
+        });
+        flatpickr("#check-out", {
+            dateFormat: "F j, Y",  // Format: October 25, 2023
+            defaultDate: "today",  // Optional: set default to today
+            minDate: "today",      // Prevent selecting past dates
+            showMonths: 1,         // Show single month
+            mode: "single",        // Single date selection
+            disableMobile: "true", // Force desktop calendar on mobile
+        });
+
+    </script>
+
+    <script>
+        function toggleFilterAgain() {
+            const filterClass = document.querySelector('.Filter-Active');
+            const toggleButton = document.querySelector('button[onclick="toggleFilterAgain()"]');
+
+            filterClass.classList.toggle('active');
+
+            // Change button text based on visibility
+            if (filterClass.classList.contains('active')) {
+                toggleButton.textContent = "Hide";
+            } else {
+                toggleButton.textContent = "Show";
+            }
+        }
+
+
+    </script>
+
+
+    <script src="guestSelection.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar.js"></script>
+    <script>
+        // Initialize Flatpickr for date selection
+        flatpickr("#departure-date", {
+            dateFormat: "M d, Y",
+            minDate: "today"
+        });
+    </script>
+
+    <script>
+        function switchTab(tab) {
+            if (tab === 'departure') {
+                document.getElementById('departureSection').style.display = 'block';
+                document.getElementById('returnSection').style.display = 'none';
+                document.getElementById('departureTab').classList.add('active');
+                document.getElementById('returnTab').classList.remove('active');
+            } else {
+                document.getElementById('departureSection').style.display = 'none';
+                document.getElementById('returnSection').style.display = 'block';
+                document.getElementById('departureTab').classList.remove('active');
+                document.getElementById('returnTab').classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+
+</html>
