@@ -79,178 +79,49 @@
     <!-- ----------header end---------------- -->
 
 
-
-
-
     <section class="order-summary2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
                     <div class="fare-summary mt-5 ml-0 mb-0 ">Complete your booking</div>
 
-                    <div class="order-summary-flight p-4 mt-4 mb-4">
-
-                        <h4 class="flight-route">
-                            <i class="fa-solid fa-plane-departure"></i>Delhi (Terminal 3) → Mumbai-Bom (Terminal 2)
-                        </h4>
-                        <p>Sunday, 29th Jan • Non-stop • 9hr 50min</p>
-
-                        <!-- Airline Details -->
-                        <div class="d-flex align-items-center">
-                            <img src="images/Plane flying over the planet.png" alt="ABC Airline" class="airline-logo">
-                            <strong>ABC Airline</strong>
-                            <span class="ms-auto non-refundable">Non-refundable</span>
-                        </div>
-
-                        <div class="d-flex justify-content-between mt-3">
-                            <p class="travel-class">Travel Class: Economy</p>
-                        </div>
-
-                        <!-- Flight Info -->
-                        <div class="row mt-3">
-                            <div class="col-md-5">
-                                <strong>NBI</strong> <br>
-                                <span class="flight-time">14:50 | Sun, 29 Jan 2023</span> <br>
-                                <span class="text-muted">Moi Intl, Mombasa, Kenya</span> <br>
-                                <span class="text-muted">Terminal - 2, Gate - 25</span>
+                    <div class="card p-4 shadow-sm mb-5 mt-3">
+                        <h5 class="">Flight Summary</h5>
+                        <div class="d-flex align-items-center  pb-3 mt-4 ">
+                            <i class="fas fa-plane display-4 me-3 "></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Delhi (Terminal 3) → Mumbai-Bom (Terminal 2)</h6>
+                                <small>Sunday, 29th Jan • 1 Stop • 9hr 50min</small>
                             </div>
-                            <div class="col-md-2 text-center">
-                                <span class="fw-bold">9hr 50min</span><br>
-                                <i class="fa-solid fa-plane"></i>
-                            </div>
-                            <div class="col-md-5 text-end">
-                                <strong>MBO</strong> <br>
-                                <span class="flight-time">14:50 | Sun, 29 Jan 2023</span> <br>
-                                <span class="text-muted">JFK Terminal, Nairobi, Kenya</span> <br>
-                                <span class="text-muted">Terminal - 2, Gate - 25</span>
-                            </div>
-                        </div>
-
-                        <!-- Baggage Info -->
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <strong>Baggage</strong> <br>
-                                <span class="baggage-info">ADULT: 23Kgs (1 Piece * 23Kgs)</span>
-                            </div>
-                            <div class="col-md-6 text-end">
-                                <strong>Cabin</strong> <br>
-                                <span class="baggage-info">7Kgs (1 Piece * 7Kgs)</span>
-                            </div>
-                        </div>
-
-                        <!-- Icons Info -->
-                        <div class="icons-info mt-3">
-                            <p>
-                                <i class="fa-solid fa-ticket"></i> Separate tickets booked together for cheaper price
-                                <br>
-                                <i class="fa-solid fa-exchange-alt"></i> Change of Terminal <br>
-                                <i class="fa-solid fa-plane-circle-check"></i> Self Transfer <br>
-                                <i class="fa-solid fa-suitcase"></i> 7kg
-                            </p>
-                        </div>
-
-                        <!-- Warning Message -->
-                        <div class="alert alert-warning mt-3">
-                            <i class="fa-solid fa-exclamation-circle"></i> Sorry, extra check-in baggage allowance
-                            details are not available currently from the airline.
                         </div>
                     </div>
 
-                    <div class="guidelines-container">
-                        <div class="guidelines-header">
-                            <h2>Important Guidelines</h2>
-                            <button class="dropdown-btn" onclick="toggleDropdown()">
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
+                    <div class="container mt-4 Flight-sumary-section">
+                        <div class="">
+                            <h5 class="fw-bold">Flight Summary</h5>
+                            <p><strong>Selected Seats(s):</strong> <span id="selected-seats">None</span></p>
+                            <h6 class="fw-bold fs-1">Indore (IDR) → Mumbai-Bom (Terminal 2)</h6>
+                            <small>Sunday, 29th Jan • 1 Stop • 9hr 50min</small>
                         </div>
-                        <div class="guidelines-content">
-                            <p>
-                                When booking a Hotel, it is important for passengers to follow certain
-                                guidelines to ensure a smooth and stress-free experience. Here are some
-                                important guidelines for passengers to observe when booking a Hotel:
-                            </p>
-                            <p id="extra-content" class="hidden">
-                                Double-Check Hotel Details: Before confirming your booking, carefully
-                                review all Hotel details, including dates, location, and Traveller
-                                information. Ensure that the information entered is accurate to avoid
-                                any complications later on.
-                            </p>
-                            <span class="read-more" onclick="toggleReadMore()">Read more</span>
+                        <h6 class="fw-bold mt-5 mb-0">Select Your Seat</h6>
+                        <h2>Departure </h2>
+                        <div class="mt-4 p-3" id="flight-ticket-section">
+                            <div class="d-flex justify-content-center">
+                                <div class="text-center ">
+                                    <div class="d-flex flex-wrap justify-content-center" id="seat-map">
+                                        <!-- Seats will be generated dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="btn my-button w-100"  id="continue-btn"  onclick="window.location.href = 'payment.html';"   disabled>Continue</button>
                         </div>
                     </div>
 
-                    <div class="flyeasyform-container">
-                        <h2>Passenger information</h2>
-                        <p class="text-muted">Enter the required information for each traveler and be sure that it
-                            exactly matches the government-issued ID presented at the airport.</p>
-
-                        <div class="flyeasyform-group">
-                            <input type="text" placeholder="First name*" required>
-                            <input type="text" placeholder="Middle">
-                            <input type="text" placeholder="Last name*" required>
-                        </div>
-
-                        <div class="flyeasyform-group">
-                            <input type="email" placeholder="Email address*" required>
-                            <input type="tel" placeholder="Phone number*" required>
-                        </div>
-
-                        <div class="flyeasyform-group">
-                            <input type="text" placeholder="Nationality*" required>
-                            <input type="text" placeholder="Date of birth*" onfocus="(this.type='date')" required>
-                        </div>
+                   
 
 
-                        <div class="other-preference-header">Other Preference <span class="float-end">&#9660;</span>
-                        </div>
-
-                        <div class="other-reference mt-2 p-3">
-                            <div class="row mb-3">
-                                <label class="col-md-3 ">Special Request</label>
-                                <div class="col-md-9">
-                                    <select class="form-select">
-                                        <option selected>Special Services:</option>
-                                        <option>Wheelchair Assistance</option>
-                                        <option>Extra Legroom</option>
-                                        <option>Medical Assistance</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-md-3 ">Meal Service</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="-(Select Meal)-Rs:0">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <label class="col-md-3 ">Extra Baggage</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" placeholder="Select Baggage-Rs:0">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flyeasyform-contact-details">
-                            <h3>Contact Details (Booking details will be sent to)</h3>
-                            <div class="flyeasyform-group">
-                                <select>
-                                    <option>Country Code</option>
-                                    <option value="+1">+1</option>
-                                    <option value="+44">+44</option>
-                                    <option value="+91">+91</option>
-                                </select>
-                                <input type="tel" placeholder="Mobile numbers" required>
-                                <input type="email" placeholder="Email" required>
-                            </div>
-                        </div>
-
-                        <div class="flyeasyform-button-group">
-                            <a href="#">Cancel</a>
-                            <button onclick="window.location.href='flight-detailOne-onestop.html';">Continue</button>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="col-lg-3">
@@ -270,10 +141,10 @@
                     </div> -->
                     <div class="steps">
                         <div class="step completed">
-                            <div class="circle">1</div>
+                            <div class="circle"><i class="fas fa-check"></i></div>
                             Choose Flight
                         </div>
-                        <div class="step ">
+                        <div class="step completed">
                             <div class="circle">2</div>
                             Flight Details
                         </div>
@@ -334,7 +205,7 @@
 
 
                     <div class="fare-summary" style="margin-top: 50px;">Promo Code</div>
-                    <div class="promo-code-container position-sticky" style="top: 110px;">
+                    <div class="promo-code-container">
                         <div>
                             <input type="text" id="promoInput" placeholder="YOUR PROMO CODE" />
                             <button onclick="applyPromo()">Apply</button>
@@ -519,6 +390,47 @@
                 readMoreBtn.textContent = 'Read more';
             }
         }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const seatMap = document.getElementById("seat-map");
+            const selectedSeatsDisplay = document.getElementById("selected-seats");
+            const continueBtn = document.getElementById("continue-btn");
+            let selectedSeats = [];
+
+            function toggleSeat(seat) {
+                if (seat.classList.contains("filled")) return;
+
+                if (seat.classList.contains("selected")) {
+                    seat.classList.remove("selected");
+                    seat.classList.add("available");
+                    selectedSeats = selectedSeats.filter(s => s !== seat.dataset.seat);
+                } else {
+                    seat.classList.remove("available");
+                    seat.classList.add("selected");
+                    selectedSeats.push(seat.dataset.seat);
+                }
+
+                selectedSeatsDisplay.textContent = selectedSeats.length > 0 ? selectedSeats.join(", ") : "None";
+                continueBtn.disabled = selectedSeats.length === 0;
+            }
+
+            function generateSeats(rows, cols) {
+                for (let row = 1; row <= rows; row++) {
+                    for (let col of ["A", "B", "C", "D", "E", "F"]) {
+                        let seatDiv = document.createElement("div");
+                        seatDiv.classList.add("seat", "available", );
+                        seatDiv.dataset.seat = `${row}${col}`;
+                        seatDiv.textContent = `${row}${col}`;
+                        seatDiv.addEventListener("click", () => toggleSeat(seatDiv));
+                        seatMap.appendChild(seatDiv);
+                    }
+                }
+            }
+
+            generateSeats(31, 6); // Generate 10 rows with 6 seats each
+        });
     </script>
 
     <script src="navbar.js"></script>
